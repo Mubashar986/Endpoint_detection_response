@@ -1,0 +1,28 @@
+{
+  "http_server": "localhost",
+  "http_port": 8000,
+  "api_path": "/api/v1/telemetry/",
+  "auth_token": "a4f7e262272c408a1aefbec2c44b5e171c3c11e1",
+
+  "uri": "ws://192.168.63.137:8000/ws/agent/",
+
+  "event_processor": {
+    "source": [
+      {
+        "path": "Microsoft-Windows-Sysmon/Operational",
+        "query": "*"
+      },
+      {
+        "path": "Microsoft-Windows-PowerShell/Operational",
+        "query": "*[System[(EventID=4104)]]"
+      }
+    ]
+  },
+
+  "command_processor": {
+    "reverse_shell": {
+      "ip": "192.168.63.137",
+      "port": 4444
+    }
+  }
+}
